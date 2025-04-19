@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { JSX } from "react";
 
-const getRandomFox = (): number => Math.floor(Math.random() * 123) + 1;
+type RandomFoxProps = {
+  image: string;
+};
 
-export const RandomFox = (): JSX.Element => {
-  const image: string = `https://randomfox.ca/images/${getRandomFox()}.jpg`;
-  console.log("Image", image);
-
+export const RandomFox = ({ image }: RandomFoxProps): JSX.Element => {
   return (
     <>
       <h1>RandomFox</h1>
