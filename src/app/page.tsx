@@ -4,27 +4,38 @@ import { RandomFox } from "@/components/RandomFox";
 
 const getRandomFox = (): number => Math.floor(Math.random() * 123) + 1;
 
+type ImageItem = {
+  id: string;
+  url: string;
+};
+
 export default function Home() {
   // const image: string = `https://randomfox.ca/images/${getRandomFox()}.jpg`;
   // console.log("Image", image);
 
-  const [images, setImages] = useState<string[]>([
-    `https://randomfox.ca/images/${getRandomFox()}.jpg`,
+  const [images, setImages] = useState<ImageItem[]>([
+    {
+      id: crypto.randomUUID(),
+      url: `https://randomfox.ca/images/${getRandomFox()}.jpg`,
+    },
   ]);
 
   const handleClick = () => {
     setImages((prevImages) => [
       ...prevImages,
-      `https://randomfox.ca/images/${getRandomFox()}.jpg`,
+      {
+        id: crypto.randomUUID(),
+        url: `https://randomfox.ca/images/${getRandomFox()}.jpg`,
+      },
     ]);
   };
 
   return (
     <div>
       <h1>Hello World!</h1>
-      {images?.map((image, index) => (
-        <div key={index} className="p-2">
-          <RandomFox image={image} />
+      {images?.map((image) => (
+        <div key={image.id} className="p-2">
+          <RandomFox image={image.url} />
         </div>
       ))}
       <button
