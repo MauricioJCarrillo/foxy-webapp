@@ -8,7 +8,6 @@ type RandomFoxProps = {
 export const RandomFox = ({ image }: RandomFoxProps): JSX.Element => {
   return (
     <>
-      <h1>RandomFox</h1>
       <Image
         className="rounded-lg"
         width={320}
