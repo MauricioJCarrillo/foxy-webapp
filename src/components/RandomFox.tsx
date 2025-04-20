@@ -14,6 +14,7 @@ export const RandomFox = ({ image }: RandomFoxProps): JSX.Element => {
         height={320}
         src={image}
         alt="random fox"
+        suppressHydrationWarning
       />
     </>
   );
